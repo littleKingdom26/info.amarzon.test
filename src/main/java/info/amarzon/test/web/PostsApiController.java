@@ -1,6 +1,7 @@
 package info.amarzon.test.web;
 
 import info.amarzon.test.service.posts.PostsService;
+import info.amarzon.test.web.dto.PostsListResponseDto;
 import info.amarzon.test.web.dto.PostsResponseDto;
 import info.amarzon.test.web.dto.PostsSaveRequestDto;
 import info.amarzon.test.web.dto.PostsUpdateRequestDto;
@@ -27,6 +28,12 @@ public class PostsApiController {
 	@GetMapping("api/v1/posts/{id}")
 	public PostsResponseDto findbyId(@PathVariable Long id){
 		return postsService.findById(id);
+	}
+
+	@DeleteMapping("api/v1/posts/{id}")
+	public Long delete(@PathVariable Long id){
+		postsService.delete(id);
+		return id;
 	}
 
 
