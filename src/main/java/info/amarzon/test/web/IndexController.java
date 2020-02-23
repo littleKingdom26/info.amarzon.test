@@ -1,5 +1,6 @@
 package info.amarzon.test.web;
 
+import info.amarzon.test.config.auth.LoginUser;
 import info.amarzon.test.config.auth.dto.SessionUser;
 import info.amarzon.test.service.posts.PostsService;
 import info.amarzon.test.web.dto.PostsResponseDto;
@@ -26,13 +27,13 @@ public class IndexController {
 	 * @return the string
 	 */
 	@GetMapping("/")
-	public String index(Model model){
+	public String index(Model model,@LoginUser SessionUser user){
 
 		model.addAttribute("posts", postsService.findAllDesc());
-		SessionUser user = (SessionUser) session.getAttribute("user");
 		if(user!=null){
 			model.addAttribute("userName", user.getName());
 		}
+		System.out.println("123");
 		return "index";
 	}
 

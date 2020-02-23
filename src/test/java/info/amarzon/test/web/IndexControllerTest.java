@@ -19,11 +19,11 @@ public class IndexControllerTest {
 	private TestRestTemplate restTemplate;
 
 	@Test
-	public void main_Test(){
-		// when
-		String body = this.restTemplate.getForObject("/",String.class);
+	public void mainPage_loading() {
+		//when
+		String body = this.restTemplate.getForObject("/", String.class);
 
-		// then
-		assertThat(body).contains("스프링 부트 웹 서비스");
+		//then
+		assertThat(body).contains("스프링부트로 시작하는 웹 서비스");
 	}
 }
