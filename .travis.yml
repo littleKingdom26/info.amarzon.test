@@ -17,7 +17,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r littlekingodm-aws-springboot *
+  - zip -r littlekingdom-aws-springboot *
   - mkdir -p deploy
   - mv littlekingdom-aws-springboot.zip deploy/littlekingdom-aws-springboot.zip
 
